@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratory Work Reports</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+      }
+      .content {
+        flex: 1;
+        margin-left: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        max-height: 525px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .sidebar {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+      }
+      .sidebar button {
+        margin: 17px 10px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .sidebar button:hover,
+      .sidebar button.active {
+        background-color: #e0e0e0;
+      }
+      .lab-buttons {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+      }
+      .lab-buttons button {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .lab-buttons button:hover,
+      .lab-buttons button.active {
+        background-color: #e0e0e0;
+        border-color: #000;
+      }
+      .content {
+        flex: 1;
+        margin-left: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      .student-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 0;
+      }
+      .student-details {
+        text-align: center;
+        flex-grow: 1;
+      }
+      .student-photo {
+        width: 100px;
+        height: 100px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+      #output {
+        margin-top: 20px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="student-info">
+      <div class="student-details">
+        <h2>
+          Звіти з лабораторних робіт з дисципліни «Інтернет-технології та
+          проектування WEB-застосувань»
+        </h2>
+        <div>Студент групи ІС-32 Кіселар Владислав Петрович</div>
+      </div>
+      <div class="student-photo">
+        <img
+          src="img/student.png"
+          alt="student-photo"
+          style="width: 100%; height: 100%"
+        />
+      </div>
+    </div>
+
+    <div class="lab-buttons">
+      <button id="lab1" onclick="selectLab('Лабораторна робота №1')">
+        Лабораторна робота №1
+      </button>
+      <button id="lab2" onclick="selectLab('Лабораторна робота №2')">
+        Лабораторна робота №2
+      </button>
+      <button id="lab3" onclick="selectLab('Лабораторна робота №3')">
+        Лабораторна робота №3
+      </button>
+      <button id="lab4" onclick="selectLab('Лабораторна робота №4')">
+        Лабораторна робота №4
+      </button>
+      <button id="lab5" onclick="selectLab('Лабораторна робота №5')">
+        Лабораторна робота №5
+      </button>
+      <button id="lab6" onclick="selectLab('Лабораторна робота №6')">
+        Лабораторна робота №6
+      </button>
+      <button id="lab7" onclick="selectLab('Лабораторна робота №7')">
+        Лабораторна робота №7
+      </button>
+      <button id="lab8" onclick="selectLab('Лабораторна робота №8')">
+        Лабораторна робота №8
+      </button>
+      <button id="lab9" onclick="selectLab('Лабораторна робота №9')">
+        Лабораторна робота №9
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <button
+          id="button1"
+          onclick="showLabContent('Опис предметного середовища', this)"
+        >
+          Опис предметного середовища
+        </button>
+        <button
+          id="button2"
+          onclick="showLabContent('Тема, Мета, Місце розташування', this)"
+        >
+          Тема, Мета, Місце розташування
+        </button>
+        <button
+          id="button3"
+          onclick="showLabContent('Структура документа', this)"
+        >
+          Структура документа
+        </button>
+        <button id="button4" onclick="showLabContent('HTML-код таблиць', this)">
+          HTML-код таблиць
+        </button>
+        <button id="button5" onclick="showLabContent('HTML-код форми', this)">
+          HTML-код форми
+        </button>
+        <button
+          id="button6"
+          onclick="showLabContent('HTML-код зображення', this)"
+        >
+          HTML-код зображення
+        </button>
+        <button id="button7" onclick="showLabContent('HTML-код списків', this)">
+          HTML-код списків
+        </button>
+        <button id="button8" onclick="showLabContent('ВИСНОВКИ', this)">
+          ВИСНОВКИ
+        </button>
+      </div>
+
+      <div class="content" id="output"></div>
+    </div>
+
+    <script>
+      let currentLab = null;
+      let activeSidebarButton = null;
+
+      const labContent = {
+        "Лабораторна робота №1": {
+          "Опис предметного середовища": {
+            text: `<h3>Використання NutriMate</h3>
+                    <p>Наш сервіс допомагає користувачам контролювати свій раціон, відстежувати споживання калорій та досягати своїх вагових цілей.</p>
+                    
+                    <h3>Функціональність сервісу:</h3>
+                    <ul>
+                        <li>Користувачі можуть створювати обліковий запис та визначати свої цілі (схуднення, набір ваги або підтримка поточної форми).</li>
+                        <li>Система автоматично розраховує добову потребу в калоріях на основі цілей користувача.</li>
+                        <li>Користувачі можуть вести журнал харчування для відстеження щоденного споживання калорій та керувати своїм графіком прийомів їжі.</li>
+                        <li>Відстеження спожитих калорій у реальному часі.</li>
+                        <li>Користувачі можуть переглядати свою історію харчування та вносити корективи для кращих результатів.</li>
+                    </ul>
+
+                    <h3>Предметна область:</h3>
+                    <p>Цей сервіс орієнтований на користувачів, які хочуть контролювати свій раціон та стежити за споживанням калорій для досягнення різних цілей: схуднення, набір ваги або підтримка поточної форми. Сервіс допомагає створювати персоналізовані плани харчування та робить моніторинг дієти простим і зручним.</p>
+
+                    <h3>Загальний опис:</h3>
+                    <p>Використовуючи безкоштовний калькулятор калорій, ви можете скласти меню з певною калорійністю або розрахувати енергетичну цінність вашого сніданку, обіду та вечері. Калькулятор являє собою базу даних продуктів і працює як вуличний кавовий автомат: ви просто обираєте бажаний продукт або готову страву, вказуєте її вагу та додаєте до свого меню. 
+                    Таким чином, немає єдиної та загальноприйнятої добової норми споживання калорій. За рекомендаціями Всесвітньої організації охорони здоров'я, "енергія, що надходить у тіло (у калоріях), має бути збалансована з витраченою енергією". Тож ваша індивідуальна добова норма калорій залежить насамперед від характеру вашої роботи, рівня фізичної активності, статі, віку та ряду інших факторів. Проте в Інтернеті можна знайти багато таблиць і калькуляторів невідомого походження, які пропонують інформацію про добові норми, нібито на основі авторитетних джерел. Ми вважаємо, що якість цієї інформації є досить сумнівною.</p>
+`,
+          },
+          "Тема, Мета, Місце розташування": {
+            text: `<h3>Тема:</h3>
+                    <p>Структура HTML-документа. Вибір предметної галузі. Робота з посиланнями, таблицями, зображеннями, списками в HTML-документі.</p>
+
+                    <h3>Мета:</h3>
+                    <p>Придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.</p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_NutriMate_Lab1" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 1
+                        </a>
+                    </p>
+`,
+          },
+          "Структура документа": {
+            text: `<style>
+                            body {
+                                font-family: Arial, sans-serif;
+                            }
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+    <pre><code>
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;NutriMate - Calorie Counter&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul class=&quot;nav left&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;./index.html&quot;&gt;Main Page&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;./businessLogic.html&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul class=&quot;nav right&quot;&gt;
+                &lt;li&gt;&lt;button&gt;ENG&lt;/button&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;./login.html&quot;&gt;Log In&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section class=&quot;under-nav&quot;&gt;
+            &lt;div class=&quot;left-content&quot;&gt;
+                &lt;img src=&quot;./img/logo.png&quot; alt=&quot;NutriMate logo&quot; /&gt;
+                &lt;h1&gt;NutriMate&lt;/h1&gt;
+                &lt;h2&gt;The Calorie Cruncher &amp; Meal Manager&lt;/h2&gt;
+                &lt;a href=&quot;./registration.html&quot;&gt;&lt;button&gt;Start for free&lt;/button&gt;&lt;/a&gt;
+                &lt;p&gt;Nutrition is the key to a healthier weight, better mood, restful sleep, and longevity.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;right-content&quot;&gt;
+                &lt;img src=&quot;./img/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h3&gt;Superb 100% FREE calorie counter app.&lt;/h3&gt;
+            &lt;p&gt;Start your weight loss journey today and get access to the world&#39;s highest quality food and nutrition database. 
+            Want lasting change? Get expert advice on what, when, and how much to eat, tailored to suit your individual lifestyle.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h3&gt;Our Tools&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;A Food Schedule to keep track of what you&#39;re eating.&lt;/li&gt;
+                &lt;li&gt;An Exercise Diary to record all the calories you burn.&lt;/li&gt;
+                &lt;li&gt;Healthy Recipes for your diet.&lt;/li&gt;
+                &lt;li&gt;A Weight Chart and Journal to track your progress.&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;div&gt;
+            &lt;section&gt;
+                &lt;h4&gt;Contact Us&lt;/h4&gt;
+                &lt;p&gt;Email: support@nutrimate.com&lt;/p&gt;
+                &lt;p&gt;Phone: +123 456 7890&lt;/p&gt;
+            &lt;/section&gt;
+
+            &lt;section&gt;
+                &lt;h4&gt;Follow Us&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/section&gt;
+
+            &lt;section&gt;
+                &lt;h4&gt;Subscribe to our Newsletter&lt;/h4&gt;
+                &lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;
+                    &lt;input type=&quot;email&quot; placeholder=&quot;Your email&quot; required&gt;
+                    &lt;button type=&quot;submit&quot;&gt;Subscribe&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;p&gt;&amp;copy; 2024 NutriMate. All rights reserved.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+`,
+          },
+          "HTML-код таблиць": {
+            text: `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+    <pre><code>&lt;table border=&quot;1&quot; cellpadding=&quot;5&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Day&lt;/th&gt;
+        &lt;th&gt;Breakfast&lt;/th&gt;
+        &lt;th&gt;Lunch&lt;/th&gt;
+        &lt;th&gt;Dinner&lt;/th&gt;
+        &lt;th&gt;Total kcal&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tuesday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Wednesday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Thursday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Friday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Saturday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Sunday&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+                            <p>Так як головна сторінка не містить таблиці, я вставив макетну таблицю сторінки «schedule.html»; наповнення цієї таблиці буде динамічним, мінятися в залежності від користувача, тому зараз вона пуста.</p>
+                            <img src="img/table.png" alt="table">
+                            <p>Також прикріпляю прототип таблиці з Figma:</p>
+                            <img src="img/table-prototype.png" alt="table prototype">
+                            
+                            <h1>Теорія про таблиці в HTML</h1>
+    
+    <h2>Основні теги для таблиць</h2>
+    <ul>
+        <li><strong>&lt;table&gt;</strong>: основний тег, що визначає таблицю.</li>
+        <li><strong>&lt;tr&gt;</strong>: тег, що визначає рядок таблиці.</li>
+        <li><strong>&lt;td&gt;</strong>: тег для створення комірки таблиці (дані).</li>
+        <li><strong>&lt;th&gt;</strong>: тег для заголовкової комірки.</li>
+    </ul>
+
+    <h2>Атрибути</h2>
+    <ul>
+        <li><strong>border</strong>: задає ширину рамки таблиці.</li>
+        <li><strong>cellpadding</strong>: задає відступи в комірках.</li>
+        <li><strong>cellspacing</strong>: задає відстань між комірками.</li>
+        <li><strong>width</strong>: задає ширину таблиці.</li>
+        <li><strong>align</strong>: задає вирівнювання таблиці.</li>
+    </ul>
+
+    <h2>Додаткові теги</h2>
+    <ul>
+        <li><strong>&lt;caption&gt;</strong>: задає заголовок таблиці.</li>
+        <li><strong>&lt;thead&gt;</strong>: визначає заголовкову частину таблиці.</li>
+        <li><strong>&lt;tbody&gt;</strong>: визначає основну частину таблиці.</li>
+        <li><strong>&lt;tfoot&gt;</strong>: визначає нижню частину таблиці.</li>
+    </ul>
+    <p>У HTML таблицях можна об'єднувати рядки та стовпці за допомогою атрибутів rowspan і colspan. Атрибут rowspan дозволяє комірці займати кілька рядків, наприклад, rowspan="2" об'єднує дві комірки в один стовпець. Атрибут colspan робить те ж саме для стовпців: colspan="3" об'єднує три стовпці в один. 
+        Це дозволяє створювати більш складні та зрозумілі таблиці, підвищуючи їхню читабельність і організацію.</p>`,
+          },
+          "HTML-код форми": {
+            text: `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+    <pre><code>
+&lt;section&gt;
+    &lt;h4&gt;Subscribe to our Newsletter&lt;/h4&gt;
+    &lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;
+        &lt;input type=&quot;email&quot; placeholder=&quot;Your email&quot; required&gt;
+        &lt;button type=&quot;submit&quot;&gt;Subscribe&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/section&gt;
+    </code></pre>
+                            <img src="img/form-1.png" alt="form-home-page">
+                            <p>Процес submit-у ще не побудований, тому атрибут action поки не має посилання. На сторінці «registration.html» використовується більш цікава форма:</p>
+                            
+    <pre><code>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;My Details&lt;/legend&gt;
+
+        &lt;label for=&quot;gender&quot;&gt;Gender:&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt; Female&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot; checked&gt; Male&lt;/label&gt;
+
+        &lt;label for=&quot;currentWeight&quot;&gt;Current Weight:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;currentWeight&quot; name=&quot;currentWeight&quot; required&gt; kg 
+        &lt;a href=&quot;#&quot;&gt;(switch to lbs)&lt;/a&gt;
+
+        &lt;label for=&quot;height&quot;&gt;Height:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;height&quot; name=&quot;height&quot; required&gt; cm 
+        &lt;a href=&quot;#&quot;&gt;(switch to inches)&lt;/a&gt;
+
+        &lt;label for=&quot;dob&quot;&gt;Date of Birth:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;dob-day&quot; name=&quot;dob-day&quot; placeholder=&quot;Day&quot; min=&quot;1&quot; max=&quot;31&quot; required&gt;
+        &lt;input type=&quot;number&quot; id=&quot;dob-month&quot; name=&quot;dob-month&quot; placeholder=&quot;Month&quot; min=&quot;1&quot; max=&quot;12&quot; required&gt;
+        &lt;input type=&quot;number&quot; id=&quot;dob-year&quot; name=&quot;dob-year&quot; placeholder=&quot;Year&quot; min=&quot;1900&quot; max=&quot;2024&quot; required&gt;
+
+        &lt;label&gt;Activity Level*:&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;activity&quot; value=&quot;sedentary&quot;&gt; Sedentary&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;activity&quot; value=&quot;low-active&quot;&gt; Low active&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;activity&quot; value=&quot;active&quot;&gt; Active&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;activity&quot; value=&quot;very-active&quot;&gt; Very active&lt;/label&gt;
+        &lt;button&gt;*What activity level should I choose?&lt;/button&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+        &lt;legend&gt;My Goals&lt;/legend&gt;
+
+        &lt;label for=&quot;dietGoal&quot;&gt;Diet Goal:&lt;/label&gt;
+        &lt;select id=&quot;dietGoal&quot; name=&quot;dietGoal&quot;&gt;
+            &lt;option value=&quot;maintain&quot;&gt;Maintain my current weight&lt;/option&gt;
+            &lt;option value=&quot;lose&quot;&gt;Lose weight&lt;/option&gt;
+            &lt;option value=&quot;gain&quot;&gt;Gain weight&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label for=&quot;goalWeight&quot;&gt;Goal Weight:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;goalWeight&quot; name=&quot;goalWeight&quot; required&gt; kg
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+        &lt;legend&gt;NutriMate Account&lt;/legend&gt;
+
+        &lt;label for=&quot;memberName&quot;&gt;Member name:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;memberName&quot; name=&quot;memberName&quot; required&gt;
+
+        &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+
+        &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+        &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;
+    &lt;/fieldset&gt;
+    &lt;p&gt;*By clicking &quot;Next&quot; you agree to the NutriMate Terms and Conditions and Privacy Policy&lt;/p&gt;
+
+    &lt;button type=&quot;submit&quot;&gt;Next&lt;/button&gt;
+    &lt;button type=&quot;button&quot;&gt;Cancel&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                            <img src="img/form-2.png" alt="form-registration">
+                            <p>Прикріпляю відповідні прототипи з Figma:</p>
+                            <img src="img/form-1-prototype.png" alt="form-home-page-prototype">
+                            <img src="img/form-2-prototype.png" style="margin-top: 10px" alt="form-registration-prototype">
+    <h1>Теорія про форми в HTML</h1>
+    
+    <h2>Основний тег для форм</h2>
+    <ul>
+        <li><strong>&lt;form&gt;</strong>: основний тег, що визначає форму для збору даних.</li>
+    </ul>
+
+    <h2>Атрибути</h2>
+    <ul>
+        <li><strong>action</strong>: вказує URL, куди буде надіслано дані форми.</li>
+        <li><strong>method</strong>: визначає метод передачі даних (GET або POST).</li>
+        <li><strong>enctype</strong>: визначає тип кодування даних при їх надсиланні.</li>
+        <li><strong>target</strong>: вказує, де відкривати відповідь сервера.</li>
+        <li><strong>autocomplete</strong>: дозволяє браузеру автоматично заповнювати поля.</li>
+    </ul>
+
+    <h2>Додаткові атрибути</h2>
+    <ul>
+        <li><strong>novalidate</strong>: вимикає вбудовану валідацію HTML5 для форми.</li>
+        <li><strong>name</strong>: задає ім'я форми для використання в скриптах.</li>
+        <li><strong>id</strong>: задає унікальний ідентифікатор для форми.</li>
+    </ul>
+    <p>У HTML формах доступні різні типи полів для збору даних, включаючи текстові поля, паролі, чекбокси, радіокнопки, випадаючі списки, а також поля для завантаження файлів. Кожен тип поля має свої унікальні властивості і використовується для різних цілей, що дозволяє створювати зручні та функціональні інтерфейси для користувачів.</p>`,
+          },
+          "HTML-код зображення": {
+            text: `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+    <pre><code>
+&lt;img src=&quot;./img/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
+    </code></pre>
+                            <img src="img/food.jpg" alt="food-home-page">
+                            <p>Ось так це зображення виглядає на прототипі:</p>
+                            <img src="img/food-prototype.png" alt="food-prototype">
+                            <h1>Теорія про зображення в HTML</h1>
+    
+    <h2>Основний тег для зображень</h2>
+    <ul>
+        <li><strong>&lt;img&gt;</strong>: основний тег, що визначає зображення на веб-сторінці.</li>
+    </ul>
+
+    <h2>Атрибути</h2>
+    <ul>
+        <li><strong>src</strong>: вказує URL або шлях до зображення (обов'язковий атрибут).</li>
+        <li><strong>alt</strong>: задає альтернативний текст для зображення.</li>
+        <li><strong>width</strong>: визначає ширину зображення в пікселях або відсотках.</li>
+        <li><strong>height</strong>: визначає висоту зображення в пікселях або відсотках.</li>
+        <li><strong>title</strong>: задає текст для відображення при наведенні курсора.</li>
+        <li><strong>loading</strong>: вказує, як завантажувати зображення (lazy або eager).</li>
+    </ul>
+
+    <h2>Додаткові атрибути</h2>
+    <ul>
+        <li><strong>class</strong>: задає клас для CSS-стилізації.</li>
+        <li><strong>id</strong>: задає унікальний ідентифікатор для зображення.</li>
+        <li><strong>style</strong>: дозволяє застосовувати CSS-стилі безпосередньо.</li>
+    </ul>`,
+          },
+          "HTML-код списків": {
+            text: `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;ul&gt;
+    &lt;li&gt;A Food Schedule to keep track of what you're eating.&lt;/li&gt;
+    &lt;li&gt;An Exercise Diary to record all the calories you burn.&lt;/li&gt;
+    &lt;li&gt;Healthy Recipes for your diet.&lt;/li&gt;
+    &lt;li&gt;A Weight Chart and Journal to track your progress.&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                            <img src="img/list.png" alt="list-home-page">
+                            <p>Ось так це виглядає на прототипі:</p>
+                            <img src="img/list-prototype.png" alt="list-prototype">
+                            <p>Звичайно список ще використовується для створення навігації nav:</p>
+<pre><code>
+&lt;nav&gt;
+    &lt;ul class=&quot;nav left&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;./index.html&quot;&gt;Main Page&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;./businessLogic.html&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class=&quot;nav right&quot;&gt;
+        &lt;li&gt;&lt;button&gt;ENG&lt;/button&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;./login.html&quot;&gt;Log In&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+                            <h1>Теорія про списки в HTML</h1>
+    
+    <h2>Основний тег для списків</h2>
+    <ul>
+        <li><strong>&lt;li&gt;</strong>: тег, що визначає елемент списку, використовується в ненумерованих (&lt;ul&gt;) та нумерованих (&lt;ol&gt;) списках.</li>
+    </ul>
+
+    <h2>Атрибути</h2>
+    <ul>
+        <li><strong>value</strong>: вказує числове значення для елемента списку в нумерованих списках.</li>
+        <li><strong>class</strong>: задає клас для CSS-стилізації елемента списку.</li>
+        <li><strong>id</strong>: задає унікальний ідентифікатор для елемента списку.</li>
+        <li><strong>style</strong>: дозволяє застосовувати CSS-стилі безпосередньо до елемента списку.</li>
+    </ul>
+
+    <h2>Додаткові відомості</h2>
+    <p>Елемент &lt;li&gt; завжди повинен бути вкладений у список, створений за допомогою тегів &lt;ul&gt; (ненумерований список) або &lt;ol&gt; (нумерований список). Використання &lt;li&gt; допомагає структурувати інформацію, роблячи її зрозумілішою для користувачів.</p>`,
+          },
+          ВИСНОВКИ: {
+            text: `
+                    <p>У ході виконання лабораторної роботи №1 ми отримали практичний досвід у створенні HTML-документів, що дозволило нам освоїти основи роботи з таблицями, зображеннями, списками та посиланнями. Ця робота допомогла зрозуміти, як правильно організувати інформацію на веб-сторінках, що є важливим для забезпечення зрозумілості та зручності використання веб-додатків.
+
+Отримані навички дозволяють ефективно систематизувати контент і підвищити якість взаємодії з користувачами, що стане основою для подальшого вивчення веб-розробки. </p>`,
+          },
+        },
+      };
+      
+      function selectLab(lab) {
+        currentLab = lab;
+
+        document
+          .querySelectorAll(".lab-buttons button")
+          .forEach((button) => button.classList.remove("active"));
+        document.getElementById(`lab${lab.slice(-1)}`).classList.add("active");
+        document.getElementById(
+          "output"
+        ).textContent = `Selected ${lab}. Now choose a section from the left to view more information.`;
+
+        if (activeSidebarButton) {
+          activeSidebarButton.classList.remove("active");
+          activeSidebarButton = null;
+        }
+      }
+
+      function showLabContent(section, button) {
+        const content = labContent[currentLab][section];
+
+        if (activeSidebarButton) {
+          activeSidebarButton.classList.remove("active");
+        }
+        activeSidebarButton = button;
+        activeSidebarButton.classList.add("active");
+
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `<p>${
+          content.text || "Information not available."
+        }</p>`;
+      }
+    </script>
+  </body>
+</html>
