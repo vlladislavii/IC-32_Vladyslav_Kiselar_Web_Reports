@@ -19,7 +19,7 @@
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        max-height: 525px;
+        max-height: 550px;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -57,13 +57,6 @@
         background-color: #e0e0e0;
         border-color: #000;
       }
-      .content {
-        flex: 1;
-        margin-left: 20px;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-      }
       .student-info {
         display: flex;
         justify-content: space-between;
@@ -84,9 +77,6 @@
         align-items: center;
         justify-content: center;
         margin: 0;
-      }
-      #output {
-        margin-top: 20px;
       }
       img {
         max-width: 100%;
@@ -145,45 +135,7 @@
     </div>
 
     <div class="container">
-      <div class="sidebar">
-        <button
-          id="button1"
-          onclick="showLabContent('Опис предметного середовища', this)"
-        >
-          Опис предметного середовища
-        </button>
-        <button
-          id="button2"
-          onclick="showLabContent('Тема, Мета, Місце розташування', this)"
-        >
-          Тема, Мета, Місце розташування
-        </button>
-        <button
-          id="button3"
-          onclick="showLabContent('Структура документа', this)"
-        >
-          Структура документа
-        </button>
-        <button id="button4" onclick="showLabContent('HTML-код таблиць', this)">
-          HTML-код таблиць
-        </button>
-        <button id="button5" onclick="showLabContent('HTML-код форми', this)">
-          HTML-код форми
-        </button>
-        <button
-          id="button6"
-          onclick="showLabContent('HTML-код зображення', this)"
-        >
-          HTML-код зображення
-        </button>
-        <button id="button7" onclick="showLabContent('HTML-код списків', this)">
-          HTML-код списків
-        </button>
-        <button id="button8" onclick="showLabContent('ВИСНОВКИ', this)">
-          ВИСНОВКИ
-        </button>
-      </div>
-
+      <div class="sidebar" id="sidebar"></div>
       <div class="content" id="output"></div>
     </div>
 
@@ -193,8 +145,18 @@
 
       const labContent = {
         "Лабораторна робота №1": {
-          "Опис предметного середовища": {
-            text: `<h3>Використання NutriMate</h3>
+          buttons: [
+            "Опис предметного середовища",
+            "Тема, Мета, Місце розташування",
+            "Структура документа",
+            "HTML-код таблиць",
+            "HTML-код форми",
+            "HTML-код зображення",
+            "HTML-код списків",
+            "ВИСНОВКИ",
+          ],
+          sections: {
+            "Опис предметного середовища": `<h3>Використання NutriMate</h3>
                     <p>Наш сервіс допомагає користувачам контролювати свій раціон, відстежувати споживання калорій та досягати своїх вагових цілей.</p>
                     
                     <h3>Функціональність сервісу:</h3>
@@ -211,11 +173,9 @@
 
                     <h3>Загальний опис:</h3>
                     <p>Використовуючи безкоштовний калькулятор калорій, ви можете скласти меню з певною калорійністю або розрахувати енергетичну цінність вашого сніданку, обіду та вечері. Калькулятор являє собою базу даних продуктів і працює як вуличний кавовий автомат: ви просто обираєте бажаний продукт або готову страву, вказуєте її вагу та додаєте до свого меню. 
-                    Таким чином, немає єдиної та загальноприйнятої добової норми споживання калорій. За рекомендаціями Всесвітньої організації охорони здоров'я, "енергія, що надходить у тіло (у калоріях), має бути збалансована з витраченою енергією". Тож ваша індивідуальна добова норма калорій залежить насамперед від характеру вашої роботи, рівня фізичної активності, статі, віку та ряду інших факторів. Проте в Інтернеті можна знайти багато таблиць і калькуляторів невідомого походження, які пропонують інформацію про добові норми, нібито на основі авторитетних джерел. Ми вважаємо, що якість цієї інформації є досить сумнівною.</p>
-`,
-          },
-          "Тема, Мета, Місце розташування": {
-            text: `<h3>Тема:</h3>
+                    Таким чином, немає єдиної та загальноприйнятої добової норми споживання калорій. За рекомендаціями Всесвітньої організації охорони здоров'я, "енергія, що надходить у тіло (у калоріях), має бути збалансована з витраченою енергією". Тож ваша індивідуальна добова норма калорій залежить насамперед від характеру вашої роботи, рівня фізичної активності, статі, віку та ряду інших факторів. Проте в Інтернеті можна знайти багато таблиць і калькуляторів невідомого походження, які пропонують інформацію про добові норми, нібито на основі авторитетних джерел. Ми вважаємо, що якість цієї інформації є досить сумнівною.</p>`,
+
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
                     <p>Структура HTML-документа. Вибір предметної галузі. Робота з посиланнями, таблицями, зображеннями, списками в HTML-документі.</p>
 
                     <h3>Мета:</h3>
@@ -226,11 +186,9 @@
                         <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_NutriMate_Lab1" target="_blank">
                         GitHub репозиторій: NutriMate Лабораторна робота 1
                         </a>
-                    </p>
-`,
-          },
-          "Структура документа": {
-            text: `<style>
+                    </p>`,
+
+            "Структура документа": `<style>
                             body {
                                 font-family: Arial, sans-serif;
                             }
@@ -333,11 +291,9 @@
 
 &lt;/body&gt;
 &lt;/html&gt;
-    </code></pre>
-`,
-          },
-          "HTML-код таблиць": {
-            text: `<style>
+    </code></pre>`,
+
+            "HTML-код таблиць": `<style>
                             pre {
                                 background-color: #f4f4f4;
                                 padding: 10px;
@@ -444,9 +400,8 @@
     </ul>
     <p>У HTML таблицях можна об'єднувати рядки та стовпці за допомогою атрибутів rowspan і colspan. Атрибут rowspan дозволяє комірці займати кілька рядків, наприклад, rowspan="2" об'єднує дві комірки в один стовпець. Атрибут colspan робить те ж саме для стовпців: colspan="3" об'єднує три стовпці в один. 
         Це дозволяє створювати більш складні та зрозумілі таблиці, підвищуючи їхню читабельність і організацію.</p>`,
-          },
-          "HTML-код форми": {
-            text: `<style>
+
+            "HTML-код форми": `<style>
                             pre {
                                 background-color: #f4f4f4;
                                 padding: 10px;
@@ -562,9 +517,8 @@
         <li><strong>id</strong>: задає унікальний ідентифікатор для форми.</li>
     </ul>
     <p>У HTML формах доступні різні типи полів для збору даних, включаючи текстові поля, паролі, чекбокси, радіокнопки, випадаючі списки, а також поля для завантаження файлів. Кожен тип поля має свої унікальні властивості і використовується для різних цілей, що дозволяє створювати зручні та функціональні інтерфейси для користувачів.</p>`,
-          },
-          "HTML-код зображення": {
-            text: `<style>
+
+            "HTML-код зображення": `<style>
                             pre {
                                 background-color: #f4f4f4;
                                 padding: 10px;
@@ -608,9 +562,8 @@
         <li><strong>id</strong>: задає унікальний ідентифікатор для зображення.</li>
         <li><strong>style</strong>: дозволяє застосовувати CSS-стилі безпосередньо.</li>
     </ul>`,
-          },
-          "HTML-код списків": {
-            text: `<style>
+
+            "HTML-код списків": `<style>
                             pre {
                                 background-color: #f4f4f4;
                                 padding: 10px;
@@ -666,35 +619,82 @@
 
     <h2>Додаткові відомості</h2>
     <p>Елемент &lt;li&gt; завжди повинен бути вкладений у список, створений за допомогою тегів &lt;ul&gt; (ненумерований список) або &lt;ol&gt; (нумерований список). Використання &lt;li&gt; допомагає структурувати інформацію, роблячи її зрозумілішою для користувачів.</p>`,
-          },
-          ВИСНОВКИ: {
-            text: `
-                    <p>У ході виконання лабораторної роботи №1 ми отримали практичний досвід у створенні HTML-документів, що дозволило нам освоїти основи роботи з таблицями, зображеннями, списками та посиланнями. Ця робота допомогла зрозуміти, як правильно організувати інформацію на веб-сторінках, що є важливим для забезпечення зрозумілості та зручності використання веб-додатків.
+
+            ВИСНОВКИ: `<p>У ході виконання лабораторної роботи №1 ми отримали практичний досвід у створенні HTML-документів, що дозволило нам освоїти основи роботи з таблицями, зображеннями, списками та посиланнями. Ця робота допомогла зрозуміти, як правильно організувати інформацію на веб-сторінках, що є важливим для забезпечення зрозумілості та зручності використання веб-додатків.
 
 Отримані навички дозволяють ефективно систематизувати контент і підвищити якість взаємодії з користувачами, що стане основою для подальшого вивчення веб-розробки. </p>`,
           },
         },
+        "Лабораторна робота №2": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №3": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №4": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №5": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №6": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №7": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №8": {
+          buttons: [],
+          sections: {},
+        },
+        "Лабораторна робота №9": {
+          buttons: [],
+          sections: {},
+        },
       };
-      
+
+      window.onload = function () {
+        selectLab("Лабораторна робота №1");
+        showLabContent(
+          "Опис предметного середовища",
+          document.querySelector("#sidebar button")
+        );
+      };
+
       function selectLab(lab) {
         currentLab = lab;
-
         document
           .querySelectorAll(".lab-buttons button")
           .forEach((button) => button.classList.remove("active"));
         document.getElementById(`lab${lab.slice(-1)}`).classList.add("active");
-        document.getElementById(
-          "output"
-        ).textContent = `Selected ${lab}. Now choose a section from the left to view more information.`;
 
-        if (activeSidebarButton) {
-          activeSidebarButton.classList.remove("active");
-          activeSidebarButton = null;
-        }
+        const sidebar = document.getElementById("sidebar");
+        sidebar.innerHTML = "";
+        document.getElementById("output").innerHTML = "";
+
+        labContent[lab].buttons.forEach((section, index) => {
+          const button = document.createElement("button");
+          button.textContent = section;
+          button.onclick = () => showLabContent(section, button);
+          sidebar.appendChild(button);
+
+          if (index === 0) {
+            button.classList.add("active");
+            showLabContent(section, button);
+            activeSidebarButton = button;
+          }
+        });
       }
 
       function showLabContent(section, button) {
-        const content = labContent[currentLab][section];
+        const content =
+          labContent[currentLab].sections[section] || "Інформація відсутня.";
 
         if (activeSidebarButton) {
           activeSidebarButton.classList.remove("active");
@@ -702,10 +702,7 @@
         activeSidebarButton = button;
         activeSidebarButton.classList.add("active");
 
-        const outputDiv = document.getElementById("output");
-        outputDiv.innerHTML = `<p>${
-          content.text || "Information not available."
-        }</p>`;
+        document.getElementById("output").innerHTML = content;
       }
     </script>
   </body>
