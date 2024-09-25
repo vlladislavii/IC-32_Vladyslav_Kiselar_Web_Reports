@@ -27,6 +27,9 @@
         width: 200px;
         display: flex;
         flex-direction: column;
+        max-height: 610px;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
       .sidebar button {
         margin: 17px 10px;
@@ -97,7 +100,7 @@
       </div>
       <div class="student-photo">
         <img
-          src="img/student.png"
+          src="img/lab1/student.png"
           alt="student-photo"
           style="width: 100%; height: 100%"
         />
@@ -232,14 +235,14 @@
     &lt;main&gt;
         &lt;section class=&quot;under-nav&quot;&gt;
             &lt;div class=&quot;left-content&quot;&gt;
-                &lt;img src=&quot;./img/logo.png&quot; alt=&quot;NutriMate logo&quot; /&gt;
+                &lt;img src=&quot;./img/lab1/logo.png&quot; alt=&quot;NutriMate logo&quot; /&gt;
                 &lt;h1&gt;NutriMate&lt;/h1&gt;
                 &lt;h2&gt;The Calorie Cruncher &amp; Meal Manager&lt;/h2&gt;
                 &lt;a href=&quot;./registration.html&quot;&gt;&lt;button&gt;Start for free&lt;/button&gt;&lt;/a&gt;
                 &lt;p&gt;Nutrition is the key to a healthier weight, better mood, restful sleep, and longevity.&lt;/p&gt;
             &lt;/div&gt;
             &lt;div class=&quot;right-content&quot;&gt;
-                &lt;img src=&quot;./img/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
+                &lt;img src=&quot;./img/lab1/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
             &lt;/div&gt;
         &lt;/section&gt;
 
@@ -368,9 +371,9 @@
 &lt;/table&gt;
 </code></pre>
                             <p>Так як головна сторінка не містить таблиці, я вставив макетну таблицю сторінки «schedule.html»; наповнення цієї таблиці буде динамічним, мінятися в залежності від користувача, тому зараз вона пуста.</p>
-                            <img src="img/table.png" alt="table">
+                            <img src="img/lab1/table.png" alt="table">
                             <p>Також прикріпляю прототип таблиці з Figma:</p>
-                            <img src="img/table-prototype.png" alt="table prototype">
+                            <img src="img/lab1/table-prototype.png" alt="table prototype">
                             
                             <h1>Теорія про таблиці в HTML</h1>
     
@@ -425,7 +428,7 @@
     &lt;/form&gt;
 &lt;/section&gt;
     </code></pre>
-                            <img src="img/form-1.png" alt="form-home-page">
+                            <img src="img/lab1/form-1.png" alt="form-home-page">
                             <p>Процес submit-у ще не побудований, тому атрибут action поки не має посилання. На сторінці «registration.html» використовується більш цікава форма:</p>
                             
     <pre><code>
@@ -490,10 +493,10 @@
     &lt;button type=&quot;button&quot;&gt;Cancel&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
-                            <img src="img/form-2.png" alt="form-registration">
+                            <img src="img/lab1/form-2.png" alt="form-registration">
                             <p>Прикріпляю відповідні прототипи з Figma:</p>
-                            <img src="img/form-1-prototype.png" alt="form-home-page-prototype">
-                            <img src="img/form-2-prototype.png" style="margin-top: 10px" alt="form-registration-prototype">
+                            <img src="img/lab1/form-1-prototype.png" alt="form-home-page-prototype">
+                            <img src="img/lab1/form-2-prototype.png" style="margin-top: 10px" alt="form-registration-prototype">
     <h1>Теорія про форми в HTML</h1>
     
     <h2>Основний тег для форм</h2>
@@ -534,11 +537,11 @@
                             }
                             </style>
     <pre><code>
-&lt;img src=&quot;./img/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
+&lt;img src=&quot;./img/lab1/food.jpg&quot; alt=&quot;Healthy food&quot; /&gt;
     </code></pre>
-                            <img src="img/food.jpg" alt="food-home-page">
+                            <img src="img/lab1/food.jpg" alt="food-home-page">
                             <p>Ось так це зображення виглядає на прототипі:</p>
-                            <img src="img/food-prototype.png" alt="food-prototype">
+                            <img src="img/lab1/food-prototype.png" alt="food-prototype">
                             <h1>Теорія про зображення в HTML</h1>
     
     <h2>Основний тег для зображень</h2>
@@ -586,9 +589,9 @@
     &lt;li&gt;A Weight Chart and Journal to track your progress.&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-                            <img src="img/list.png" alt="list-home-page">
+                            <img src="img/lab1/list.png" alt="list-home-page">
                             <p>Ось так це виглядає на прототипі:</p>
-                            <img src="img/list-prototype.png" alt="list-prototype">
+                            <img src="img/lab1/list-prototype.png" alt="list-prototype">
                             <p>Звичайно список ще використовується для створення навігації nav:</p>
 <pre><code>
 &lt;nav&gt;
@@ -626,8 +629,565 @@
           },
         },
         "Лабораторна робота №2": {
-          buttons: [],
-          sections: {},
+          buttons: [
+            "Тема, Мета, Місце розташування",
+            "Способи підключення стилів",
+            "Селектори",
+            "Селектори тегу",
+            "Селектори класу",
+            "Селектори ідентифікаторів",
+            "Інші селектори",
+            "Шрифти, текст, таблиці, фон, контур, списки",
+            "ВИСНОВКИ",
+          ],
+          sections: {
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
+                    <p>Каскадні таблиці стилів. Селектори. Ідентифікатори. Стильове оформлення текстових елементів в HTML-документах.</p>
+
+                    <h3>Мета:</h3>
+                    <p>Придбати практичні навички роботи  з селекторами, ідентифікаторами, списками,  різноманітними властивостями кольору і фону,  зовнішними та внутрішними  відступами,  плаваючими елементами, оформленням текстових елементів.</p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_NutriMate" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 2
+                        </a>
+                    </p>`,
+            "Способи підключення стилів": `<h1>Способи підключення стилів</h1>
+    <p>У HTML-документах існують три основні способи підключення CSS стилів:</p>
+
+    <h2>1. Вбудовані стилі (Inline)</h2>
+    <p>Вбудовані стилі застосовуються безпосередньо до елементів HTML через атрибут <code>style</code>. Цей спосіб дозволяє стилізувати окремі елементи, але використовується рідко через складність управління стилями великого проекту.</p>
+    <pre><code>&lt;p style="color: red; font-size: 16px;"&gt;Це текст з вбудованим стилем&lt;/p&gt;</code></pre>
+
+    <h2>2. Внутрішні стилі (Embedded)</h2>
+    <p>Внутрішні стилі прописуються всередині тегу <code>&lt;style&gt;</code> в області <code>&lt;head&gt;</code> HTML-документа. Цей метод дозволяє стилізувати цілий документ, але тільки в межах одного HTML-файлу.</p>
+    <pre><code>&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+
+    <h2>3. Зовнішні стилі (External)</h2>
+    <p>Зовнішні стилі зберігаються у окремому файлі з розширенням <code>.css</code> і підключаються до HTML-документа через тег <code>&lt;link&gt;</code>. Це найбільш ефективний і гнучкий спосіб роботи зі стилями, оскільки дозволяє використовувати один CSS файл для багатьох HTML-документів.</p>
+    <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+
+    <h2>Переваги та недоліки кожного способу</h2>
+    <ul>
+        <li><strong>Вбудовані стилі:</strong> зручно для швидких змін, але складно підтримувати в великих проектах.</li>
+        <li><strong>Внутрішні стилі:</strong> добре підходять для одноразових сторінок, але неефективні для багаторазового використання стилів.</li>
+        <li><strong>Зовнішні стилі:</strong> найкращий варіант для багатосторінкових сайтів, оскільки дозволяє централізовано управляти стилями.</li>
+    </ul>`,
+            Селектори: `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+}
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    font-family: "Inter";
+    font-weight: lighter;
+    background-color: #28642E;
+    color: #000000;
+}
+
+nav {
+    background-color: #28642E;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.nav {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+.nav a {
+    color: white;
+    font-weight: 200;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 0 10px;
+}
+
+#login {
+    border: 2px solid #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 20px;
+    margin-left: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #D4E9CB;
+    color: #28642E;
+    padding: 30px 10px;
+}
+
+.link {
+    transition: 0.5s;
+    margin-right: 10px;
+}
+
+.under-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #D4E9CB;
+    padding: 0;
+    margin: 0;
+}
+
+.left-content {
+    max-width: 660px;
+    padding: 30px;
+    background-color: #D4E9CB;
+}
+
+.right-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.left-content h1 {
+    font-size: 47px;
+    font-weight: 500;
+    color: #AFAD1E;
+    float: left;
+    margin: 16px 10px;
+}
+
+.left-content img {
+    height: 100px;
+    float: left;
+}
+
+.left-content h2 {
+    font-size: 45px;
+    font-weight: 450;
+    margin-top: 10px;
+    clear: both;
+}
+
+.left-content button {
+    background-color: #28642E;
+    color: white;
+    padding: 15px 30px;
+    border: 2px solid #AFAD1E;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.left-content button:hover {
+    background-color: #36502e;
+}
+
+.left-content p {
+    margin-top: 20px;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 1.6;
+}
+
+.right-content img {
+    width: 860px;
+    height: 450px;
+    display: block;
+    object-fit: cover;
+}
+
+.main-description {
+    background-color: #EAF5E5;
+    padding: 35px;
+    text-align: center;
+    clear: both;
+}
+
+.main-description h3 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.main-description p {
+    font-size: 18px;
+    max-width: 1000px;
+    font-weight: 400;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tools {
+    background-color: #4CAF50;
+    padding: 30px;
+    color: #000000;
+}
+
+.tools h3 {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.tools ul {
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tools li {
+    width: 50%;
+    font-size: 22px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.tools .checkmark {
+    margin-right: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .tools li {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: #28642E;
+    color: white;
+    padding: 30px 0;
+    font-weight: 200;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer section {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #28642E;
+    color: white;
+    padding: 30px 0;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 20px 0;
+}
+
+footer section {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    border-left: 1px solid #ffffff;
+}
+
+footer section:first-child {
+    border-left: none;
+}
+
+footer h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer section .social-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+footer a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 15px;
+    border-top: 1px solid #ffffff;
+    padding-top: 25px;
+}
+
+footer form input[type="email"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+footer form button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+footer form button:hover {
+    background-color: #D4E9CB;
+    color: #28642E;
+}
+</code></pre>
+
+<img src="img/lab2/css-prototype-1.png" alt="selectors">
+<img src="img/lab2/css-prototype-2.png" alt="selectors">
+`,
+            "Селектори тегу": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <p>HTML-тег:</p>
+            <pre><code>&lt;nav&gt;
+    &lt;ul class="nav left"&gt;
+        &lt;li&gt;&lt;a href="./index.html"&gt;Main Page&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="./businessLogic.html"&gt;Features&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="nav right"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;ENG&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a id="login" href="./login.html"&gt;Log In&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+<p>Відповідний йому селектор:</p>
+<pre><code>nav {
+    background-color: #28642E;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    overflow: hidden;
+}
+</code></pre>
+<p>Зображення в браузері:</p>
+<img src="img/lab2/teg-selector.png" alt="teg-selector">
+`,
+            "Селектори класу": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <p>HTML-тег з класом:</p>
+                            <pre><code>&lt;div class="copyright"&gt;
+    &lt;p&gt;&amp;copy; 2024 NutriMate. All rights reserved.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Відповідний йому селектор:</p>
+<pre><code>.copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+</code></pre>
+<p>Зображення в браузері:</p>
+<img src="img/lab2/class-selector.png" alt="teg-selector">`,
+
+            "Селектори ідентифікаторів": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <p>HTML-тег з ідентифікатором:</p>
+                            <pre><code>&lt;li&gt;&lt;a id="login" href="./login.html"&gt;Log In&lt;/a&gt;&lt;/li&gt;</code></pre>
+<p>Відповідний йому селектор:</p>
+<pre><code>#login {                            
+    border: 2px solid #ffffff;      
+    text-decoration: none;         
+    font-size: 16px;                
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 20px; 
+    margin-left: 5px;
+}
+</code></pre>
+<p>Зображення в браузері:</p>
+<img src="img/lab2/id-selector.png" alt="id-selector">`,
+
+            "Інші селектори": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+            <p>Універсальний селектор:</p>
+            <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+</code></pre>
+<p>Селектор атрибута:</p>
+<pre><code>footer form input[type="email"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+</code></pre>
+<p>Псевдоклас селектор:</p>
+<pre><code>footer section:first-child {
+    border-left: none;
+}
+</code></pre>
+            `,
+            "Шрифти, текст, таблиці, фон, контур, списки": `
+            <p>Зображення в браузері:</p>
+            <img src="img/lab2/css-prototype-1.png" alt="selectors">
+            <img src="img/lab2/css-prototype-2.png" alt="selectors">
+            `,
+            ВИСНОВКИ: `
+            <p>У результаті виконання лабораторної роботи №2 з каскадних таблиць стилів (CSS) та їх селекторів, ми набули практичних навичок у стилізації веб-документів. Під час роботи з селекторами тегів, класів та ідентифікаторів ми дізналися, як ефективно використовувати CSS для контролю зовнішнього вигляду HTML-елементів. Це включає застосування різноманітних властивостей, таких як кольори, фони, відступи та шрифти, що дозволяє створювати естетично привабливі та зручні для користувача веб-інтерфейси.
+              Таким чином, освоєння основ CSS та практична робота з селекторами дозволили закріпити знання про стильове оформлення текстових елементів і надали необхідні навички для подальшої роботи у веб-розробці.</p>`,
+          },
         },
         "Лабораторна робота №3": {
           buttons: [],
