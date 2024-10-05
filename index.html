@@ -1190,8 +1190,882 @@ footer form button:hover {
           },
         },
         "Лабораторна робота №3": {
-          buttons: [],
-          sections: {},
+            buttons: [
+            "Тема, Мета, Місце розташування",
+            "Завдання 1. Зовнішній вид макету",
+            "Завдання 2. Фіксована таблична верстка",
+            "Завдання 2. Гумова таблична верстка",
+            "Завдання 2. Фіксована блокова верстка",
+            "Завдання 2. Гумова блокова верстка",
+            "Завдання 3. Скріншот сторінки (Flexbox)",
+            "Завдання 3. HTML-код (Flexbox)",
+            "Завдання 3. CSS-код (Flexbox)",
+            "ВИСНОВКИ",
+          ],
+          sections: {
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
+                    <p>ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА.  ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX.</p>
+
+                    <h3>Мета:</h3>
+                    <p>Придбати практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок; практичні навички роботи  верстки сторінок засобами CSS та FLEXBOX.</p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>Локально у особистому компʼютері (не  репозиторій)</p>`,
+
+            "Завдання 1. Зовнішній вид макету": `
+            <img src="img/lab2/css-prototype-1.png" alt="selectors">
+            <img src="img/lab2/css-prototype-2.png" alt="selectors">
+            `,
+
+            "Завдання 2. Фіксована таблична верстка": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Fixed Table Layout&lt;/title&gt;
+    &lt;style&gt;
+        table {
+            width: 650px;
+            height: 750px;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            border: 2px solid black;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+        .yellow { background-color: yellow; height: 90px; }
+        .blue { background-color: blue; color: white; }
+        .red { background-color: red; color: white; }
+        .white { background-color: white; }
+        input {
+            margin-left: 20px;
+            float: left;
+            border: 2px solid black;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr class=&quot;yellow&quot;&gt;
+            &lt;td colspan=&quot;7&quot;&gt;&lt;input type=&quot;text&quot;&gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class=&quot;blue&quot;&gt;2&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;red&quot;&gt;3&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;4&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;red&quot;&gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;7&quot; class=&quot;yellow&quot;&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<img src="img/lab3/fixed-table-1.png" alt="table-1">
+<img src="img/lab3/fixed-table-2.png" alt="table-2">
+`,
+
+            "Завдання 2. Гумова таблична верстка": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Fluid Table Layout&lt;/title&gt;
+    &lt;style&gt;
+        table {
+            width: 42%;
+            height: 95vh;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            border: 2px solid black;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+        .yellow { background-color: yellow; height: 12%;}
+        .blue { background-color: blue; color: white; }
+        .red { background-color: red; color: white; }
+        .white { background-color: white; }
+        input {
+            border: 2px solid black;
+            float: left;
+            margin-left: 5%;
+            padding: 0;
+            width: 20%;
+            height: 40%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr class=&quot;yellow&quot;&gt;
+            &lt;td colspan=&quot;7&quot;&gt;&lt;input type=&quot;text&quot;&gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class=&quot;blue&quot;&gt;2&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;red&quot;&gt;3&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;4&lt;/td&gt;
+            &lt;td class=&quot;white&quot;&gt;&lt;/td&gt;
+            &lt;td class=&quot;red&quot;&gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;7&quot; class=&quot;yellow&quot;&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<img src="img/lab3/fluid-table-1.png" alt="table-3">
+<img src="img/lab3/fluid-table-2.png" alt="table-4">`,
+
+            "Завдання 2. Фіксована блокова верстка": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Fixed Block Layout&lt;/title&gt;
+    &lt;style&gt;
+        .container {
+            width: 650px;
+            height: 750px;
+            margin: 0 auto;
+        }
+
+        .block {
+            border: 1px solid black;
+            font-weight: bold;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .header {
+            background-color: yellow;
+            height: 90px;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .header input {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            width: 200px;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        .footer {
+            background-color: yellow;
+            height: 90px;
+            clear: both;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blue { background-color: blue; color: white; }
+        .red { background-color: red; color: white; }
+        .white { background-color: white; }
+        
+        .row {
+            height: 550px;
+        }
+
+        .col {
+            float: left;
+            height: 600px;
+        }
+
+        .blue-block { width: 134px; }
+        .red-block { width: 134px; }
+        .white-block { width: 134px; }
+
+        .center-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;header block&quot;&gt;
+            &lt;input type=&quot;text&quot; style=&quot;width: 200px; height: 20px; border: 1px solid black;&quot;&gt;
+            1
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col blue-block block blue center-block&quot;&gt;2&lt;/div&gt;
+            &lt;div class=&quot;col white-block block white&quot; style=&quot;width: 38px;&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col red-block block red center-block&quot;&gt;3&lt;/div&gt;
+            &lt;div class=&quot;col white-block block white&quot; style=&quot;width: 38px;&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col white-block block white center-block&quot;&gt;4&lt;/div&gt;
+            &lt;div class=&quot;col white-block block white&quot; style=&quot;width: 38px;&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col red-block block red center-block&quot;&gt;5&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;footer block&quot;&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<img src="img/lab3/fixed-block-1.png" alt="block-1">
+<img src="img/lab3/fixed-block-2.png" alt="block-2">`,
+
+            "Завдання 2. Гумова блокова верстка": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Fluid Block Layout&lt;/title&gt;
+    &lt;style&gt;
+        html, body {
+            height: 100%;
+        }
+
+        .container {
+            width: 42%;
+            height: 95vh;
+            margin: 0 auto;
+        }
+
+        .block {
+            border: 1px solid black;
+            font-weight: bold;
+            box-sizing: border-box;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: yellow;
+            height: 12%;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .header input {
+            width: 20%;
+            height: 40%;
+            border: 1px solid black;
+        }
+
+        .footer {
+            background-color: yellow;
+            height: 12%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blue { background-color: blue; color: white; }
+        .red { background-color: red; color: white; }
+        .white { background-color: white; }
+
+        .row {
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .blue-block { width: 25%; }
+        .red-block { width: 25%; }
+        .white-block { width: 25%; }
+        .spacer { width: 10px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;header block&quot;&gt;
+            &lt;input type=&quot;text&quot;&gt;
+            &lt;div&gt;1&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col blue-block block blue&quot;&gt;2&lt;/div&gt;
+            &lt;div class=&quot;col spacer&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col red-block block red&quot;&gt;3&lt;/div&gt;
+            &lt;div class=&quot;col spacer&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col white-block block white&quot; style=&quot;width: 38px;&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;col red-block block red center-block&quot;&gt;5&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;footer block&quot;&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<img src="img/lab3/fluid-block-1.png" alt="block-3">
+<img src="img/lab3/fluid-block-2.png" alt="block-4">`,
+
+            "Завдання 3. Скріншот сторінки (Flexbox)": `
+            <img src="img/lab3/task2-1.png" alt="task-1">
+            <img src="img/lab3/task2-2.png" alt="task-2">
+            <img src="img/lab3/task2-3.png" alt="task-3">`,
+
+            "Завдання 3. HTML-код (Flexbox)": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Programming School&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;navbar&quot;&gt;
+        &lt;div&gt;
+            &lt;a href=&quot;#&quot;&gt;Форми навчання&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Заходи&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Про Академію&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Контакти&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;select class=&quot;city-select&quot;&gt;
+            &lt;option value=&quot;Київ&quot;&gt;Київ&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;header&quot;&gt;
+        &lt;div class=&quot;header-text&quot;&gt;
+            &lt;div&gt;
+                &lt;h2&gt;Курси програмування&lt;/h2&gt; 
+                &lt;h2&gt;&lt;span class=&quot;blue-text&quot;&gt;з 100% гарантією&lt;/span&gt; працевлаштування&lt;/h2&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+                &lt;p&gt;SCHOOL IT отримує висококваліфіковану роботу своїх випускників.&lt;/p&gt;
+                &lt;p&gt;На потужні висококласні ІТ-спеціалісти.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;img src=&quot;img/image.png&quot; alt=&quot;&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;employer-review&quot;&gt;
+        &lt;h3&gt;Відгуки від роботодавців&lt;/h3&gt;
+        &lt;h2&gt;ПІДТВЕРДЖЕНА ЯКІСТЬ&lt;/h2&gt;
+
+        &lt;p&gt;
+            Школа програмування - єдина, що має відгуки від роботодавців, які входять до списку найкращих компаній DOU.UA. 
+            А випускники курсів з інкубатором отримують гарантії працевлаштування впродовж 6 місяців після успішного закінчення навчання. 
+            Але зазвичай їх забирають до себе наші офіційні партнери ще до закінчення курсу.
+        &lt;/p&gt;
+
+        &lt;div class=&quot;review-content&quot;&gt;
+            &lt;figure class=&quot;video&quot;&gt;
+                &lt;img src=&quot;img/video-title.png&quot; alt=&quot;Video Thumbnail&quot;&gt;
+                &lt;figcaption&gt;Відгук INCORA про випускників Okten&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class=&quot;partners&quot;&gt;
+                &lt;img src=&quot;img/epam-logo.png&quot; alt=&quot;Epam&quot;&gt;
+                &lt;img src=&quot;img/incora-logo.png&quot; alt=&quot;Incora&quot;&gt;
+                &lt;img src=&quot;img/binariks-logo.png&quot; alt=&quot;Binariks&quot;&gt;
+                &lt;img src=&quot;img/rolique-logo.png&quot; alt=&quot;Rolique&quot;&gt;
+                &lt;img src=&quot;img/eleks-logo.png&quot; alt=&quot;Eleks&quot;&gt;
+                &lt;img src=&quot;img/globallogic-logo.png&quot; alt=&quot;Global Logic&quot;&gt;
+                &lt;img src=&quot;img/intetics-logo.png&quot; alt=&quot;Intetics&quot;&gt;
+                &lt;img src=&quot;img/softserve-logo.png&quot; alt=&quot;SoftServe&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;courses-header&quot;&gt;
+        &lt;h3&gt;Популярні напрямки&lt;/h3&gt;
+        &lt;h2&gt;Курсів програмування&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;courses&quot;&gt;
+        &lt;div class=&quot;course&quot;&gt;
+            &lt;img src=&quot;img/javascript-logo.png&quot; alt=&quot;JS Logo&quot; class=&quot;logo&quot;&gt;
+            &lt;h3&gt;JavaScript&lt;/h3&gt;
+            &lt;h4&gt;Комплексний курс&lt;/h4&gt;
+
+            &lt;div&gt;
+                &lt;p&gt;Тривалість: 5-11 місяців&lt;/p&gt;
+                &lt;p&gt;Ціна: від 14500 грн&lt;/p&gt;
+                &lt;p class=&quot;availability&quot;&gt;Залишилось 3 місця&lt;/p&gt;
+                &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Детальніше&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;course&quot;&gt;
+            &lt;img src=&quot;img/java-logo.png&quot; alt=&quot;Java Logo&quot; class=&quot;logo&quot;&gt;
+            &lt;h3&gt;Java&lt;/h3&gt;
+            &lt;h4&gt;Комплексний курс&lt;/h4&gt;
+
+            &lt;p&gt;Тривалість: 6-11 місяців&lt;/p&gt;
+            &lt;p&gt;Ціна: від 14500 грн&lt;/p&gt;
+            &lt;p class=&quot;availability&quot;&gt;Залишилось 6 місць&lt;/p&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Детальніше&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;course&quot;&gt;
+            &lt;img src=&quot;img/python-logo.png&quot; alt=&quot;Python Logo&quot; class=&quot;logo&quot;&gt;
+            &lt;h3&gt;Python&lt;/h3&gt;
+            &lt;h4&gt;Комплексний курс&lt;/h4&gt;
+
+            &lt;p&gt;Тривалість: 6-11 місяців&lt;/p&gt;
+            &lt;p&gt;Ціна: від 14500 грн&lt;/p&gt;
+            &lt;p class=&quot;availability&quot;&gt;Залишилось 4 місця&lt;/p&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Детальніше&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;footer&quot;&gt;
+        &lt;p class=&quot;footer-year&quot;&gt;2024&lt;/p&gt;
+        &lt;div class=&quot;social-icons&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;
+                &lt;img src=&quot;img/facebook-icon.png&quot; alt=&quot;Facebook&quot;&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;
+                &lt;img src=&quot;img/vk-icon.png&quot; alt=&quot;VK&quot;&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;
+                &lt;img src=&quot;img/telegram-icon.png&quot; alt=&quot;Telegram&quot;&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;
+                &lt;img src=&quot;img/instagram-icon.png&quot; alt=&quot;Instagram&quot;&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+`,
+
+            "Завдання 3. CSS-код (Flexbox)": `
+             <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            <pre><code>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navbar div {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.city-select {
+    background-color: #2e373f;
+    color: white;
+    padding: 5px 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f8f8;
+    align-items: center;
+}
+
+.header h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.header-text {
+    width: 50%;
+}
+
+.header div {
+    margin: 15px;
+}
+
+.blue-text {
+    color: #2196f3;
+}
+
+.header img {
+    width: 900px;
+    height: auto;
+}
+
+.employer-review {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #e3f2fb;
+}
+
+.employer-review h2 {
+    font-weight: 800;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.employer-review h3 {
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.employer-review p {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.review-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video {
+    width: 40%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.video img {
+    width: 90%;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 50%;
+}
+
+.partners img {
+    max-width: 150px;
+}
+
+.courses {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+    padding: 20px;
+    background-color: #141313;
+    margin-top: 0;
+}
+
+.courses-header {
+    background-color: #141313; 
+    text-align: center; 
+    padding: 20px 0 0 0; 
+    margin-bottom: 0;
+}
+
+.courses-header h3 {
+    color: #FFFFFF; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    margin-bottom: 5px;
+}
+
+.courses-header h2 {
+    color: #FF9800; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+    margin-top: 0;
+}
+
+.course {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+    position: relative;
+}
+
+.course .logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+
+.course h3 {
+    margin: 1px 0;
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.course h4 {
+    color: #ff9800;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.course p {
+    margin: 2px 0;
+}
+
+.course .availability {
+    color: #00aaff;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.course .btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #504f4e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+}
+
+.footer-year {
+    color: white;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+</code></pre>
+`,
+
+            "ВИСНОВКИ": `
+            <style>
+            table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+            </style>
+            <p>В результаті виконання практичних завдань, пов'язаних з версткою веб-сторінок, вдалося отримати навички роботи з CSS, включаючи верстку на основі плаваючих елементів.
+                Було з'ясовано переваги та недоліки різних типів макетів веб-сторінок, що дозволило глибше зрозуміти особливості верстки.</p>
+        
+        <p>Застосування Flexbox дозволило значно спростити процес верстки та підвищити адаптивність веб-сторінок. Опанування Flexbox стало важливим кроком для створення сучасних та гнучких макетів.</p>
+        
+        <h2>Переваги та недоліки створення веб-додатків</h2>
+    
+    <h3>1. Використання таблиць</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Переваги</th>
+                <th>Недоліки</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Легкість у створенні структурованих даних.</td>
+                <td>Складність у досягненні адаптивності.</td>
+            </tr>
+            <tr>
+                <td>Швидка верстка простих макетів.</td>
+                <td>Обмежена гнучкість у дизайні.</td>
+            </tr>
+            <tr>
+                <td>Простота у використанні для представлення табличних даних.</td>
+                <td>Не підходить для складних макетів з великою кількістю елементів.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2. Використання блоків (плаваючих блоків)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Переваги</th>
+                <th>Недоліки</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Гнучкість у дизайні та можливість адаптації.</td>
+                <td>Може призвести до проблем з виведенням вмісту при неправильному використанні.</td>
+            </tr>
+            <tr>
+                <td>Легкість у реалізації складних макетів.</td>
+                <td>Вимагає більше часу на налаштування.</td>
+            </tr>
+            <tr>
+                <td>Краще управління простором на екрані.</td>
+                <td>Може бути складніше для початківців.</td>
+            </tr>
+        </tbody>
+    </table>`,
+
+          },
         },
         "Лабораторна робота №4": {
           buttons: [],
