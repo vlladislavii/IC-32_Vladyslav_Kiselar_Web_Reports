@@ -1210,7 +1210,11 @@ footer form button:hover {
                     <p>Придбати практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок; практичні навички роботи  верстки сторінок засобами CSS та FLEXBOX.</p>
     
                     <h3>Місце розташування:</h3>
-                    <p>Локально у особистому компʼютері (не  репозиторій)</p>`,
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_Additional_Tasks" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 3
+                        </a>
+                    </p>`,
 
             "Завдання 1. Зовнішній вид макету": `
             <img src="img/lab2/css-prototype-1.png" alt="selectors">
@@ -2365,8 +2369,578 @@ figcaption {
           },
         },
         "Лабораторна робота №5": {
-          buttons: [],
-          sections: {},
+            buttons: [
+            "Тема, Мета, Місце розташування",
+            "Завдання 1",
+            "Завдання 2",
+            "Завдання 3",
+            "Завдання 4",
+            "Завдання 5",
+            "ВИСНОВКИ",
+          ],
+          sections: {
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
+                    <p>Функціональне застосування javascript у html-документі. Використання масивів у js-сценаріях. Реалізація програм засовами мови javascript.</p>
+
+                    <h3>Мета:</h3>
+                    <p>Придбати практичні навички роботи з конструкціями мови JS, масивами та фугкціями у js-сценаріях.  Реалізація програм засовами мови JAVASCRIPT.</p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_Additional_Tasks" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 5
+                        </a>
+                    </p>`,
+            "Завдання 1": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;script&gt;
+function getShippingMessage(country, price, deliveryFee) {
+    const totalPrice = price + deliveryFee;
+    return \`Shipping to \${country} will cost \${totalPrice} credits\`;
+}
+
+const country = prompt("Enter the country for shipping:");
+const price = parseFloat(prompt("Enter the price of the product:"));
+const deliveryFee = parseFloat(prompt("Enter the delivery fee:"));
+
+const message = getShippingMessage(country, price, deliveryFee);
+
+console.log(message);
+document.body.innerHTML += \`&lt;p&gt;\${message}&lt;/p&gt;\`;
+&lt;/script&gt;
+</pre></code>
+                    <img src="img/lab5/task1-1.png" alt="task1-1">
+                    <img src="img/lab5/task1-2.png" alt="task1-2">
+                    <img src="img/lab5/task1-3.png" alt="task1-3">
+                    <img src="img/lab5/task1-4.png" alt="task1-4">
+                            `,
+
+            "Завдання 2": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Drone Purchase Station&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    div {
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input[type=&quot;number&quot;] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 80px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Drone Repair Station&lt;/h1&gt;
+  &lt;p&gt;Check if you can purchase repair droids based on your credits!&lt;/p&gt;
+
+  &lt;div&gt;
+    &lt;label for=&quot;quantity&quot;&gt;Quantity of Droids:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;quantity&quot; value=&quot;3&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;pricePerDroid&quot;&gt;Price per Droid:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;pricePerDroid&quot; value=&quot;100&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;customerCredits&quot;&gt;Customer Credits:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;customerCredits&quot; value=&quot;500&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;button onclick=&quot;processTransaction()&quot;&gt;Make Transaction&lt;/button&gt;
+  &lt;p id=&quot;result&quot;&gt;&lt;/p&gt;
+
+  &lt;script&gt;
+    function makeTransaction(quantity, pricePerDroid, customerCredits) {
+      const totalPrice = quantity * pricePerDroid;
+      if (totalPrice &gt; customerCredits) {
+        return &quot;Insufficient funds!&quot;;
+      } else {
+        return \`You ordered \${quantity} droids worth \${totalPrice} credits!\`;
+      }
+    }
+
+    function processTransaction() {
+      const quantity = parseInt(document.getElementById(&quot;quantity&quot;).value);
+      const pricePerDroid = parseInt(document.getElementById(&quot;pricePerDroid&quot;).value);
+      const customerCredits = parseInt(document.getElementById(&quot;customerCredits&quot;).value);
+      const result = makeTransaction(quantity, pricePerDroid, customerCredits);
+
+      document.getElementById(&quot;result&quot;).textContent = result;
+      console.log(result);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    <img src="img/lab5/task2-1.png" alt="task2-1">
+                    <img src="img/lab5/task2-2.png" alt="task2-2">
+                    <img src="img/lab5/task2-3.png" alt="task2-3">`,
+                    
+            "Завдання 3": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Make Array Example&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .result {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Make Array Example&lt;/h1&gt;
+&lt;button id=&quot;showResult&quot;&gt;Показати результат&lt;/button&gt;
+&lt;div class=&quot;result&quot; id=&quot;result&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    function makeArray(firstArray, secondArray, maxLength) {
+        const newArray = firstArray.concat(secondArray);
+        if (newArray.length &gt; maxLength) {
+            return newArray.slice(0, maxLength);
+        }
+        return newArray;
+    }
+
+    document.getElementById(&#39;showResult&#39;).addEventListener(&#39;click&#39;, function() {
+        try {
+            const array1 = [1, 2, 3];
+            const array2 = [4, 5, 6, 7];
+            const maxLength = 5;
+
+            const result = makeArray(array1, array2, maxLength);
+            
+            console.log(&#39;Результат: [&#39; + result.join(&#39;, &#39;) + &#39;]&#39;);
+            
+            document.getElementById(&#39;result&#39;).innerText = &#39;Результат: [&#39; + result.join(&#39;, &#39;) + &#39;]&#39;;
+            document.getElementById(&#39;result&#39;).style.display = &#39;block&#39;;
+        } catch (error) {
+            console.error(&#39;Error occurred:&#39;, error);
+        }
+    });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                    <img src="img/lab5/task3-1.png" alt="task3-1">`,
+
+            "Завдання 4": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Array Processing&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .container {
+      width: 300px;
+      text-align: center;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      width: 100%;
+    }
+    .result {
+      margin-top: 20px;
+    }
+    pre {
+      text-align: left;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2&gt;Array Processing&lt;/h2&gt;
+    &lt;input id=&quot;array1&quot; placeholder=&quot;Enter elements for array 1, comma-separated&quot;&gt;
+    &lt;input id=&quot;array2&quot; placeholder=&quot;Enter elements for array 2, comma-separated&quot;&gt;
+    &lt;button onclick=&quot;processArrays()&quot;&gt;Process Arrays&lt;/button&gt;
+
+    &lt;div class=&quot;result&quot;&gt;
+      &lt;h3&gt;Results:&lt;/h3&gt;
+      &lt;pre id=&quot;output&quot;&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    function processArrays() {
+      const array1 = document.getElementById(&#39;array1&#39;).value.split(&#39;,&#39;).map(Number);
+      const array2 = document.getElementById(&#39;array2&#39;).value.split(&#39;,&#39;).map(Number);
+      
+      const commonMin = findSmallestCommonElement(array1, array2);
+      const sortedArray = bubbleSort([...array1]);
+
+      displayResults(array1, array2, commonMin, sortedArray);
+      console.log(&#34;Original Array 1:&#34;, array1);
+      console.log(&#34;Original Array 2:&#34;, array2);
+      console.log(&#34;Smallest Common Element:&#34;, commonMin);
+      console.log(&#34;Sorted Array 1:&#34;, sortedArray);
+    }
+
+    function findSmallestCommonElement(arr1, arr2) {
+      const commonElements = arr1.filter(item =&gt; arr2.includes(item));
+      return commonElements.length &gt; 0 ? Math.min(...commonElements) : &#34;No common elements&#34;;
+    }
+
+    function bubbleSort(arr) {
+      const n = arr.length;
+      for (let i = 0; i &lt; n - 1; i++) {
+        for (let j = 0; j &lt; n - i - 1; j++) {
+          if (arr[j] &gt; arr[j + 1]) {
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+          }
+        }
+      }
+      return arr;
+    }
+
+    function displayResults(array1, array2, commonMin, sortedArray) {
+      const output = document.getElementById(&#39;output&#39;);
+      output.textContent = \`Original Array 1: \${array1.join(&#34;, &#34;)}
+Original Array 2: \${array2.join(&#34;, &#34;)}
+Smallest Common Element: \${commonMin}
+Sorted Array 1: \${sortedArray.join(&#34;, &#34;)}
+      \`;
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    <img src="img/lab5/task4-1.png" alt="task4-1">`,
+
+            "Завдання 5": `<style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Alarm Clock&lt;/title&gt;
+  &lt;style&gt;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4c76e3, #43c0e4);
+      color: #333;
+    }
+
+    .alarm-container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      padding: 30px 20px;
+      width: 350px;
+      text-align: center;
+    }
+
+    .alarm-container h1 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    input[type=&quot;datetime-local&quot;] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .set-alarm {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .set-alarm:hover {
+      background-color: #43a047;
+    }
+
+    .disable-alarm {
+      background-color: #e53935;
+      color: white;
+    }
+
+    .disable-alarm:hover {
+      background-color: #d32f2f;
+    }
+
+    .notification {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      color: #ffffff;
+      background-color: #ff6f61;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.2em;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;alarm-container&quot;&gt;
+    &lt;h1&gt;Alarm Clock&lt;/h1&gt;
+    &lt;input type=&quot;datetime-local&quot; id=&quot;alarm-time&quot;&gt;
+    &lt;button id=&quot;set-alarm-btn&quot; class=&quot;set-alarm&quot; onclick=&quot;setAlarm()&quot;&gt;Set Alarm&lt;/button&gt;
+    &lt;button id=&quot;disable-alarm-btn&quot; class=&quot;disable-alarm&quot; onclick=&quot;disableAlarm()&quot; style=&quot;display: none;&quot;&gt;Disable Alarm&lt;/button&gt;
+    &lt;div id=&quot;notification&quot; class=&quot;notification&quot;&gt;🔔 Alarm is ringing! 🔔&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;audio id=&quot;alarm-sound&quot; src=&quot;https://www.soundjay.com/misc/sounds/bell-ringing-01c.mp3&quot; preload=&quot;auto&quot;&gt;&lt;/audio&gt;
+
+  &lt;script&gt;
+    let alarmTime = null;
+    let alarmTimeout = null;
+
+    function setAlarm() {
+      const alarmInput = document.getElementById(&#39;alarm-time&#39;).value;
+      if (!alarmInput) {
+        alert(&#34;Please select a date and time for the alarm.&#34;);
+        return;
+      }
+
+      alarmTime = new Date(alarmInput).getTime();
+      const currentTime = new Date().getTime();
+
+      if (alarmTime &lt;= currentTime) {
+        alert(&#34;Please set a future date and time for the alarm.&#34;);
+        return;
+      }
+
+      document.getElementById(&#34;set-alarm-btn&#34;).style.display = &#34;none&#34;;
+      document.getElementById(&#34;disable-alarm-btn&#34;).style.display = &#34;block&#34;;
+      scheduleAlarm();
+      alert(&#34;Alarm is set!&#34;);
+    }
+
+    function scheduleAlarm() {
+      const timeDifference = alarmTime - new Date().getTime();
+      console.log(&#34;Scheduling alarm to ring in&#34;, timeDifference, &#34;ms&#34;);
+      
+      alarmTimeout = setTimeout(() =&gt; {
+        console.log(&#34;Alarm is ringing&#34;);
+        document.getElementById(&#34;notification&#34;).style.display = &#34;block&#34;;
+        playAlarmSound();
+        
+        setTimeout(disableAlarm, 10000);
+      }, timeDifference);
+    }
+
+    function playAlarmSound() {
+      const alarmSound = document.getElementById(&#34;alarm-sound&#34;);
+      alarmSound.play();
+    }
+
+    function disableAlarm() {
+      clearTimeout(alarmTimeout);
+      alarmTime = null;
+      document.getElementById(&#34;set-alarm-btn&#34;).style.display = &#34;block&#34;;
+      document.getElementById(&#34;disable-alarm-btn&#34;).style.display = &#34;none&#34;;
+      document.getElementById(&#34;notification&#34;).style.display = &#34;none&#34;;
+      console.log(&#34;Alarm dismissed&#34;);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    <img src="img/lab5/task5-1.png" alt="task5-1">
+                    <img src="img/lab5/task5-2.png" alt="task5-2">
+                    <img src="img/lab5/task5-3.png" alt="task5-3">
+                    <img src="img/lab5/task5-4.png" alt="task5-4">`,
+
+            ВИСНОВКИ: `
+            <h2>Основні результати:</h2>
+            
+    <p>У результаті виконання лабораторної роботи було набуто практичні навички роботи з JavaScript, зокрема:
+        <ul>
+            <li>Оголошення функцій, що працюють з параметрами для виконання обчислень та перевірок.</li>
+            <li>Робота з масивами в JavaScript, включаючи операції додавання елементів, фільтрації та сортування.</li>
+            <li>Розуміння принципів роботи з елементами та взаємодії між HTML-документом і JavaScript.</li>
+        </ul>
+    </p>
+    
+    <p>Під час виконання завдань лабораторної роботи було розглянуто основи програмування на JavaScript, що включають функції, масиви, оператори умов та цикли. Також були набуті навички застосування таких конструкцій, як перевірка коректності введених даних у формах HTML та обчислення математичних операцій.</p>
+
+    <p>Особливу увагу було приділено практичному застосуванню різних типів даних та методів роботи з ними, що дозволяє ефективно працювати з великими обсягами інформації в реальних веб-застосунках. Також було розглянуто важливість валідних даних та їх обробки, що є критично важливим для створення надійних та безпечних веб-додатків.</p>
+
+    <p>Отже, виконана лабораторна робота допомогла закріпити теоретичні знання та отримати практичні навички у використанні JavaScript для створення динамічних веб-застосунків.</p>`
+          },
         },
         "Лабораторна робота №6": {
           buttons: [],
