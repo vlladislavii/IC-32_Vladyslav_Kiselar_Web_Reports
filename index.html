@@ -2995,8 +2995,435 @@ Sorted Array 1: \${sortedArray.join(&#34;, &#34;)}
           },
         },
         "Лабораторна робота №7": {
-          buttons: [],
-          sections: {},
+            buttons: [
+          "Тема, Мета, Місце розташування",
+            "Завдання 1",
+            "Завдання 2",
+            "Завдання 3",
+            "Завдання 4",
+            "Завдання 5",
+            "Завдання 6",
+            "Завдання 7",
+            "ВИСНОВКИ",
+        ],
+        sections: {
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
+                    <p>КЛАСИ. ОБ'ЄКТНА МОДЕЛЬ ДОКУМЕНТА (DOM). ПОДІЇ. ОБ'ЄКТ ПОДІЇ. ДЕЛЕГУВАННЯ ПОДІЙ.</p>
+
+                    <h3>Мета:</h3>
+                    <p>придбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки. Реалізація програм засовами мови JAVASCRIPT. </p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_Additional_Tasks" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 7
+                        </a>
+                    </p>`,
+
+            "Завдання 1": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+            <pre>
+  &lt;script&gt;
+    const swapButton = document.getElementById('swapButton');
+    const input1 = document.getElementById('input1');
+    const input2 = document.getElementById('input2');
+
+    swapButton.addEventListener('click', () => {
+        const temp = input1.value;
+        input1.value = input2.value;
+        input2.value = temp;
+    });
+  &lt;/script&gt;
+</pre>
+
+            <img src="img/lab7/task1.png" alt="task1">`,
+            
+            "Завдання 2": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+                            <pre>
+  &lt;script&gt;
+    const square = document.getElementById('square');
+    const shrinkButton = document.getElementById('shrink');
+    const enlargeButton = document.getElementById('enlarge');
+
+    function changeSize(amount) {
+        const currentWidth = parseInt(getComputedStyle(square).width);
+        const currentHeight = parseInt(getComputedStyle(square).height);
+
+        const newWidth = currentWidth + amount;
+        const newHeight = currentHeight + amount;
+
+        if (newWidth >= 15 && newHeight >= 15) {
+            square.style.width = newWidth + 'px';
+            square.style.height = newHeight + 'px';
+        }
+    }
+
+    shrinkButton.addEventListener('click', () => changeSize(-15));
+    enlargeButton.addEventListener('click', () => changeSize(15));
+  &lt;/script&gt;
+</pre>
+
+            <img src="img/lab7/task2_1.png" alt="task2">
+            <img src="img/lab7/task2_2.png" alt="task2">
+            <img src="img/lab7/task2_2.png" alt="task2">`, 
+
+            "Завдання 3": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+                            <pre>
+  &lt;script&gt;
+    const doubleButton = document.getElementById('double-button');
+    const numberList = document.getElementById('number-list');
+
+    doubleButton.addEventListener('click', () => {
+        const listItems = numberList.querySelectorAll('li');
+        listItems.forEach(item => {
+            const currentValue = parseInt(item.textContent);
+            item.textContent = currentValue * 2;
+        });
+    });
+  &lt;/script&gt;
+</pre>
+            
+            <img src="img/lab7/task3_1.png" alt="task3">
+             <img src="img/lab7/task3_2.png" alt="task3">`, 
+
+            "Завдання 4": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+                            <pre>
+  &lt;script&gt;
+    const categories = document.querySelectorAll('#categories .item');
+
+    console.log('Number of categories: ' + categories.length);
+
+    categories.forEach(function(category) {
+        var title = category.querySelector('h2').textContent;
+        var elementsCount = category.querySelectorAll('ul li').length;
+        console.log('Category: ' + title);
+        console.log('Elements: ' + elementsCount);
+    });
+  &lt;/script&gt;
+</pre>
+            <img src="img/lab7/task4.png" alt="task4">`, 
+            
+            "Завдання 5": `
+            
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+<pre>
+  &lt;script&gt;
+    const loginForm = document.querySelector('.login-form');
+
+    loginForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const { email, password } = event.target.elements;
+
+        if (email.value.trim() === '' || password.value.trim() === '') {
+            alert('All form fields must be filled in');
+            return;
+        }
+
+        const formData = {
+            email: email.value.trim(),
+            password: password.value.trim(),
+        };
+
+        console.log(formData);
+
+        loginForm.reset();
+    });
+  &lt;/script&gt;
+</pre>
+
+            <img src="img/lab7/task5_1.png" alt="task5">
+            <img src="img/lab7/task5_2.png" alt="task5">
+            <img src="img/lab7/task5_3.png" alt="task5">`, 
+
+            "Завдання 6": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+
+                            <pre>
+  &lt;script&gt;
+    function getRandomHexColor() {
+        return &#96;#&#36;{Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, 0)}&#96;;
+    }
+
+    const changeColorButton = document.querySelector('.change-color');
+    const colorSpan = document.querySelector('.color');
+    const body = document.body;
+
+    changeColorButton.addEventListener('click', () => {
+        const newColor = getRandomHexColor();
+        body.style.backgroundColor = newColor;
+        colorSpan.textContent = newColor;
+    });
+  &lt;/script&gt;
+</pre>
+
+            <img src="img/lab7/task6_1.png" alt="task6">
+            <img src="img/lab7/task6_2.png" alt="task6">
+            <img src="img/lab7/task6_3.png" alt="task6">`, 
+
+            "Завдання 7": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+<pre>
+  &lt;script&gt;
+    function getRandomHexColor() {
+        return &#96;#&#36;{Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, 0)}&#96;;
+    }
+
+    const controls = document.querySelector("#controls");
+    const input = controls.querySelector("input");
+    const createButton = controls.querySelector("[data-create]");
+    const destroyButton = controls.querySelector("[data-destroy]");
+    const boxesContainer = document.querySelector("#boxes");
+
+    function createBoxes(amount) {
+        boxesContainer.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+        let boxSize = 30;
+
+        for (let i = 0; i < amount; i++) {
+            const box = document.createElement("div");
+            box.style.width = &#96;&#36;{boxSize}px&#96;;
+            box.style.height = &#96;&#36;{boxSize}px&#96;;
+            box.style.backgroundColor = getRandomHexColor();
+            box.style.border = "2px solid #fff";
+            box.style.borderRadius = "5px";
+            fragment.appendChild(box);
+            boxSize += 10;
+        }
+
+        boxesContainer.appendChild(fragment);
+    }
+
+    function destroyBoxes() {
+        boxesContainer.innerHTML = "";
+    }
+
+    createButton.addEventListener("click", () => {
+        const amount = parseInt(input.value.trim(), 10);
+
+        if (!amount || amount < 1 || amount > 100) {
+            alert("Please enter a number between 1 and 100.");
+            return;
+        }
+
+        createBoxes(amount);
+        input.value = "";
+    });
+
+    destroyButton.addEventListener("click", destroyBoxes);
+  &lt;/script&gt;
+</pre>
+
+            <img src="img/lab7/task7_1.png" alt="task7">
+            <img src="img/lab7/task7_2.png" alt="task7">
+            <img src="img/lab7/task7_3.png" alt="task7">`,
+
+            "ВИСНОВКИ": `
+            <main>
+    <section>
+        <h2>1. Класи в JavaScript</h2>
+        <p>Використання класів в JavaScript дозволяє створювати об'єкти з певною структурою та поведінкою, що є основою об'єктно-орієнтованого програмування (ООП). Клас визначає шаблон для створення об'єктів, надаючи їм методи та властивості.</p>
+        <p>Принципи ООП, такі як інкапсуляція, наслідування та поліморфізм, реалізуються за допомогою класів, що дозволяє структурувати код і робить його більш підтримуваним.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    drive() {
+        console.log(this.make + ' ' + this.model + ' is driving.');
+    }
+}
+
+const myCar = new Car('Toyota', 'Corolla');
+myCar.drive();
+        </pre>
+        <p>В результаті використання класу створюється об'єкт автомобіля з можливістю викликати методи, які реалізують певну поведінку об'єкта.</p>
+    </section>
+
+    <section>
+        <h2>2. Об'єктна модель документа (DOM)</h2>
+        <p>DOM дозволяє маніпулювати структурою HTML-документа за допомогою JavaScript. Це дає можливість змінювати вміст, стиль, структуру та поведінку веб-сторінки. З DOM ми можемо взаємодіяти з елементами сторінки, додавати чи видаляти елементи, змінювати їх атрибути та стилі.</p>
+        <p>Під час роботи з DOM необхідно використовувати методи для доступу до елементів, такі як <code>getElementById()</code>, <code>getElementsByClassName()</code>, або <code>querySelector()</code>, а також обробляти події за допомогою <code>addEventListener()</code>.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+document.getElementById('myButton').addEventListener('click', function() {
+    document.body.style.backgroundColor = 'lightblue';
+});
+        </pre>
+        <p>В цьому прикладі ми змінюємо колір фону сторінки на світло-блакитний, коли натискається кнопка.</p>
+    </section>
+
+    <section>
+        <h2>3. Події та об'єкт події</h2>
+        <p>Події в JavaScript дозволяють реагувати на взаємодію користувача з елементами на веб-сторінці, наприклад, натискання кнопок, рух миші, введення тексту. Об'єкт події містить інформацію про подію, тип події, елемент, з яким вона сталася, та інші дані, що дозволяють ефективно обробляти події.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+document.getElementById('myButton').addEventListener('click', function(event) {
+    console.log('Button clicked!', event);
+});
+        </pre>
+        <p>У цьому прикладі ми реєструємо подію "click" на кнопку, і при її активації отримуємо доступ до об'єкта події.</p>
+    </section>
+
+    <section>
+        <h2>4. Делегування подій</h2>
+        <p>Делегування подій дозволяє значно зменшити кількість обробників подій на сторінці, зберігаючи ефективність при роботі з великою кількістю елементів. Замість того, щоб додавати обробники на кожен елемент окремо, можна додати один обробник на батьківський елемент, який буде реагувати на події, що відбуваються на дочірніх елементах.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+document.getElementById('parent').addEventListener('click', function(event) {
+    if (event.target && event.target.matches('button.classname')) {
+        console.log('Button clicked!');
+    }
+});
+        </pre>
+        <p>Тут ми додаємо обробник на батьківський елемент і перевіряємо, чи була натиснута кнопка з класом "classname". Це дозволяє ефективно обробляти події на великій кількості елементів.</p>
+    </section>
+
+    <section>
+        <h2>5. Стрілочні функції та колбеки</h2>
+        <p>Стрілочні функції є компактним синтаксисом для оголошення функцій у JavaScript. Вони використовуються, зокрема, як колбеки, тобто функції, передані як аргументи в інші функції. Це дозволяє значно скоротити код і підвищити його читабельність.</p>
+        <p>Також варто зауважити, що стрілочні функції не мають свого власного значення <code>this</code>, що може бути корисним при роботі з асинхронними операціями.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+const numbers = [1, 2, 3, 4];
+const doubledNumbers = numbers.map(number => number * 2);
+console.log(doubledNumbers); // [2, 4, 6, 8]
+        </pre>
+        <p>У цьому прикладі ми використовуємо стрілочну функцію в методі <code>map()</code> для подвоєння значень масиву.</p>
+    </section>
+
+    <section>
+        <h2>6. Стрілочні функції як колбеки</h2>
+        <p>Стрілочні функції часто використовуються як колбеки для обробки асинхронних операцій. Це дозволяє зробити код більш чистим і зрозумілим, оскільки функція колбеку часто використовується в одному рядку і не вимагає складного синтаксису.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+setTimeout(() => {
+    console.log('This message is delayed by 2 seconds.');
+}, 2000);
+        </pre>
+        <p>В цьому прикладі ми використовуємо стрілочну функцію як колбек для функції <code>setTimeout()</code>, яка затримує виконання коду на 2 секунди.</p>
+    </section>
+
+    <section>
+        <h2>7. Підсумки</h2>
+        <p>Під час вивчення цієї теми ми набули важливих практичних навичок роботи з об'єктами, класами, об'єктною моделлю документа (DOM) і подіями в JavaScript. Ми вивчили, як маніпулювати елементами веб-сторінки, обробляти події, використовувати колбеки і делегування подій для покращення ефективності коду. Знання стрілочних функцій також дозволяє зменшити складність коду та зробити його більш лаконічним і читабельним.</p>
+        <p>Ці знання є основою для створення динамічних і інтерактивних веб-сторінок, де важлива взаємодія з користувачем і швидка обробка подій.</p>
+    </section>
+</main>`, 
+          },
         },
         "Лабораторна робота №8": {
           buttons: [],
