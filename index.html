@@ -3426,11 +3426,491 @@ setTimeout(() => {
           },
         },
         "Лабораторна робота №8": {
-          buttons: [],
-          sections: {},
+            buttons: [
+          "Тема, Мета, Місце розташування",
+            "Завдання 1",
+            "Завдання 2",
+            "ВИСНОВКИ",
+        ],
+          sections: {
+            "Тема, Мета, Місце розташування": `<h3>Тема:</h3>
+                    <p>WEB-СХОВИЩЕ. WEB STORAGE API. МОДУЛЬНОСТЬ  КОДУ. СТВОРЕННЯ МОДАЛЬНОГО ВІКНА. ДЕЛЕГУВАННЯ ПОДІЙ.</p>
+
+                    <h3>Мета:</h3>
+                    <p>придбати практичні навички роботи створення модального вікна; повторити процес створення макету, зокрема створення макету галереї довільних зображень; закріпити навички роботи з делегуванням подій. </p>
+    
+                    <h3>Місце розташування:</h3>
+                    <p>
+                        <a href="https://github.com/vlladislavii/IC-32_Vladyslav_Kiselar_Web_Lab8" target="_blank">
+                        GitHub репозиторій: NutriMate Лабораторна робота 8
+                        </a>
+                    </p>`,
+
+            "Завдання 1": `
+                            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+
+                            <img src="img/lab8/task1_p1.png" alt="task1_figma1">
+                            <img src="img/lab8/task1_p2.png" alt="task1_figma2">
+                            <img src="img/lab8/task1_p3.png" alt="task1_figma3">
+
+                            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Image Gallery&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../task1/css/style.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul class="gallery"&gt;&lt;/ul&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../task1/js/gallery.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code>
+const images = [
+    {
+        preview: '../task1/img/preview/img1.jpg',
+        original: '../task1/img/original/img1.jpg',
+        description: 'Shark Image 1',
+    },
+    {
+        preview: '../task1/img/preview/img2.jpg',
+        original: '../task1/img/original/img2.jpg',
+        description: 'Shark Image 2',
+    },
+    {
+        preview: '../task1/img/preview/img3.jpg',
+        original: '../task1/img/original/img3.jpg',
+        description: 'Shark Image 3',
+    },
+    {
+        preview: '../task1/img/preview/img4.jpg',
+        original: '../task1/img/original/img4.jpg',
+        description: 'Shark Image 4',
+    },
+    {
+        preview: '../task1/img/preview/img5.jpg',
+        original: '../task1/img/original/img5.jpg',
+        description: 'Shark Image 5',
+    },
+    {
+        preview: '../task1/img/preview/img6.jpg',
+        original: '../task1/img/original/img6.jpg',
+        description: 'Shark Image 6',
+    },
+    {
+        preview: '../task1/img/preview/img7.jpg',
+        original: '../task1/img/original/img7.jpg',
+        description: 'Shark Image 7',
+    },
+    {
+        preview: '../task1/img/preview/img8.jpg',
+        original: '../task1/img/original/img8.jpg',
+        description: 'Shark Image 8',
+    },
+    {
+        preview: '../task1/img/preview/img9.jpg',
+        original: '../task1/img/original/img9.jpg',
+        description: 'Shark Image 9',
+    },
+];
+
+const gallery = document.querySelector('.gallery');
+
+const galleryItems = images.map(({ preview, original, description }) => \`
+    &lt;li class="gallery__item"&gt;
+        &lt;a class="gallery__link" href="\${original}"&gt;
+            &lt;img
+                class="gallery__image"
+                src="\${preview}"
+                data-source="\${original}"
+                alt="\${description}"
+            /&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+\`).join('');
+
+gallery.innerHTML = galleryItems;
+
+gallery.addEventListener('click', event => {
+    const isImage = event.target.classList.contains('gallery__image');
+    if (!isImage) return;
+
+    event.preventDefault();
+
+    const originalImage = event.target.dataset.source;
+
+    const instance = basicLightbox.create(\`
+        &lt;img src="\${originalImage}" alt="\${event.target.alt}"&gt;
+    \`);
+
+    instance.show();
+});
+</code></pre>
+
+<pre><code>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../img/water.jpg') repeat;
+    animation: waterMovement 20s linear infinite;
+}
+
+@keyframes waterMovement {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 3000px 0;
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    width: 90%;
+    max-width: 1400px;
+    justify-items: center;
+    align-items: center;
+}
+
+.gallery__item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 350px;
+    height: 220px;
+}
+
+.gallery__item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gallery__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+</code></pre>
+
+            <img src="img/lab8/task1_1.png" alt="task1_1">
+            <img src="img/lab8/task1_2.png" alt="task1_2">
+            <img src="img/lab8/task1_3.png" alt="task1_3">
+                            `,
+
+            "Завдання 2": `
+            <style>
+                            pre {
+                                background-color: #f4f4f4;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                font-size: 12px;
+                                white-space: pre;
+                            }
+                            code {
+                                font-family: "Courier New", Courier, monospace;
+                                color: #080d54;
+                                display: block;
+                            }
+                            </style>
+                            
+<img src="img/lab8/task2_p1.png" alt="task2_figma1">
+<img src="img/lab8/task2_p2.png" alt="task2_figma2">
+
+                           <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Form with Local Storage&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../task2/2-form.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form class="feedback-form" autocomplete="off"&gt;
+        &lt;label&gt;
+            Email
+            &lt;input type="email" name="email" autofocus /&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+            Message
+            &lt;textarea name="message" rows="8"&gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;script src="../task2/2-form.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code>
+const formData = {
+    email: "",
+    message: "",
+};
+
+const form = document.querySelector('.feedback-form');
+const emailInput = form.querySelector('input[name="email"]');
+const messageInput = form.querySelector('textarea[name="message"]');
+
+const savedData = JSON.parse(localStorage.getItem("feedback-form-state"));
+if (savedData) {
+    formData.email = savedData.email || "";
+    formData.message = savedData.message || "";
+    emailInput.value = formData.email;
+    messageInput.value = formData.message;
+}
+
+form.addEventListener('input', event =&gt; {
+    if (event.target.name === "email") {
+        formData.email = event.target.value.trim();
+    }
+    if (event.target.name === "message") {
+        formData.message = event.target.value.trim();
+    }
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
+});
+
+form.addEventListener('submit', event =&gt; {
+    event.preventDefault();
+
+    if (formData.email === "" || formData.message === "") {
+        alert("Fill please all fields");
+        return;
+    }
+
+    console.log(formData);
+
+    localStorage.removeItem("feedback-form-state");
+    formData.email = "";
+    formData.message = "";
+    emailInput.value = "";
+    messageInput.value = "";
+});
+</code></pre>
+
+<pre><code>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+}
+
+.feedback-form {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.feedback-form label {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form input[type="email"]:hover,
+.feedback-form textarea:hover {
+    border-color: #2575fc;
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+}
+
+.feedback-form input[type="email"]:focus,
+.feedback-form textarea:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 4px rgba(106, 17, 203, 0.5);
+}
+
+.feedback-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.feedback-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #6a11cb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #2575fc;
+    transform: translateY(-2px);
+}
+
+.feedback-form button:active {
+    transform: translateY(0);
+}
+
+.feedback-form button:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(37, 117, 252, 0.5);
+}
+</code></pre>
+
+            <img src="img/lab8/task2_1.png" alt="task2_1">
+            <img src="img/lab8/task2_2.png" alt="task2_2">
+            <img src="img/lab8/task2_3.png" alt="task2_3">
+          `,
+
+            "ВИСНОВКИ": `<main>
+    <section>
+        <h2>1. WEB-СХОВИЩЕ ТА WEB STORAGE API</h2>
+        <p>WEB-Сховище надає можливість зберігати дані на стороні клієнта у браузері, що значно полегшує створення інтерактивних і динамічних веб-додатків. Web Storage API дозволяє працювати з <code>localStorage</code> і <code>sessionStorage</code>, що забезпечують зберігання даних у ключ-значення форматі.</p>
+        <p><strong>Особливості:</strong></p>
+        <ul>
+            <li><code>localStorage</code> - дані зберігаються навіть після закриття браузера.</li>
+            <li><code>sessionStorage</code> - дані зберігаються тільки протягом активної сесії (до закриття вкладки).</li>
+        </ul>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+localStorage.setItem('username', 'JohnDoe');
+console.log(localStorage.getItem('username')); // 'JohnDoe'
+localStorage.removeItem('username');
+        </pre>
+        <p>У цьому прикладі ми додаємо, отримуємо та видаляємо дані у <code>localStorage</code>.</p>
+    </section>
+
+    <section>
+        <h2>2. МОДУЛЬНІСТЬ КОДУ</h2>
+        <p>Модульність — це підхід до написання коду, при якому функціонал додатку розділяється на незалежні частини (модулі). Це покращує читабельність, повторне використання і підтримку коду.</p>
+        <p>В ES6 модулі реалізуються за допомогою <code>export</code> та <code>import</code>.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+// file: mathUtils.js
+export function add(a, b) {
+    return a + b;
+}
+
+// file: app.js
+import { add } from './mathUtils.js';
+console.log(add(2, 3)); // 5
+        </pre>
+        <p>Код стає більш структурованим і розділеним за функціональністю.</p>
+    </section>
+
+    <section>
+        <h2>3. СТВОРЕННЯ МОДАЛЬНОГО ВІКНА</h2>
+        <p>Модальні вікна — це спливаючі вікна, які використовуються для відображення додаткової інформації чи взаємодії з користувачем, не перенаправляючи його на іншу сторінку.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.open-modal');
+const closeBtn = document.querySelector('.close-modal');
+
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+        </pre>
+        <p>У цьому прикладі ми реалізуємо відкриття і закриття модального вікна.</p>
+    </section>
+
+    <section>
+        <h2>4. ДЕЛЕГУВАННЯ ПОДІЙ</h2>
+        <p>Делегування подій дозволяє обробляти події на великій кількості елементів за допомогою одного обробника на батьківському елементі. Це зменшує кількість обробників на сторінці.</p>
+        <p><strong>Приклад:</strong></p>
+        <pre>
+document.querySelector('.list').addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+        console.log('Clicked item:', event.target.textContent);
+    }
+});
+        </pre>
+        <p>Тут ми додаємо обробник на батьківський елемент <code>.list</code>, що реагує на кліки по дочірнім елементам <code>&lt;li&gt;</code>.</p>
+    </section>
+
+    <section>
+        <h2>5. ПІДСУМКИ</h2>
+        <p>Ми вивчили основи роботи з WEB-СХОВИЩЕМ, модульністю коду, створенням модальних вікон та делегуванням подій у JavaScript. Ці концепції є критично важливими для розробки сучасних веб-додатків.</p>
+        <p>Знання цих тем дозволяє:</p>
+        <ul>
+            <li>Ефективно зберігати і використовувати дані користувача.</li>
+            <li>Структурувати код для зручної підтримки і масштабування.</li>
+            <li>Реалізовувати інтерактивність і динаміку на веб-сторінках.</li>
+        </ul>
+        <p>Практика цих концепцій дозволить вам створювати більш ефективні і гнучкі веб-додатки.</p>
+    </section>
+</main>
+`,
+          },
         },
         "Лабораторна робота №9": {
-          buttons: [],
+            buttons: [
+          "Тема, Мета, Місце розташування",
+            "Завдання 1",
+            "Завдання 2",
+            "ВИСНОВКИ",
+        ],
           sections: {},
         },
       };
